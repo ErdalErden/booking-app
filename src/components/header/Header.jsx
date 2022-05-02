@@ -44,7 +44,7 @@ const handleOption = (name, operation)=>{
                 </div>
                 <div className="headerListItem">
                 <FontAwesomeIcon icon={faCar}/>
-                <span>Car Rentals</span>
+                <span>Ca Rentals</span>
                 </div>
                 <div className="headerListItem">
                 <FontAwesomeIcon icon={faBed}/>
