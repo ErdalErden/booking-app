@@ -8,7 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from "date-fns";
 import { useState } from "react";
 
-function Header() {
+function Header({type}) {
 const [openDate, setOpenDate] = useState(false)
 const [date, setDate] = useState([
     {
@@ -32,7 +32,7 @@ const handleOption = (name, operation)=>{
 };
   return (
     <div className="header">
-        <div className="headerContainer">
+        <div className={type==="list" ? "headerContainer listMode" : "headerContainer"}>
             <div className="headerList">
                 <div className="headerListItem active">
                 <FontAwesomeIcon icon={faBed}/>
@@ -54,13 +54,16 @@ const handleOption = (name, operation)=>{
                 <FontAwesomeIcon icon={faTaxi}/>
                 <span>Airport Taxis</span>
                 </div>
-        </div>  
-        <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
-        <p className="headerDesc">
+            </div>  
+
+            {type !=='list' &&
+                <>
+            <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
+            <p className="headerDesc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi non culpa repudiandae in dignissimos ipsum ex.
-        </p>
-        <button className="headerBtn">Sign in / Register</button>
-        <div className="headerSearch">
+            </p>
+            <button className="headerBtn">Sign in / Register</button>
+            <div className="headerSearch">
             <div className="headerSearchItem">
             <FontAwesomeIcon icon={faBed} className="headerIcon"/>
             <input type="text" placeholder="Where are you going?" className="headerSearchInput" />
@@ -113,7 +116,7 @@ const handleOption = (name, operation)=>{
                     Search
                 </button>
             </div>
-        </div>
+        </div></>}
         </div>
     </div>
   )
